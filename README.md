@@ -1,7 +1,8 @@
-# Elasticsearch Curator in docker
+## Elasticsearch Curator in docker
 
 This is dockerized version of elasticsearch curator,
 tool to manage time-based indices.
+
 
 ## Why this image
 
@@ -10,6 +11,7 @@ in the docker registry. It is also based on minimal `alpine` image,
 resulting in a just 50mb image.
 
 Also you should not configure CRON or another scheduler - just run container based on this image.
+
 
 ## Environment Variables
 
@@ -26,10 +28,17 @@ ES_HOST             # ES host (default: elasticsearch)
 ES_PORT             # ES port (default: 9200)
 ```
 
-## Usage
 
-Run the image (dry-run):
+## Using a custom Curator action file
 
 ```
-docker run -d vsiryk/elasticsearch-curator:latest --dry-run
+docker run -d -v /path/to/action.yml:/action.yml vsiryk/elasticsearch-curator:latest
+```
+
+## Usage
+
+Run the image:
+
+```
+docker run -d vsiryk/elasticsearch-curator:latest
 ```
