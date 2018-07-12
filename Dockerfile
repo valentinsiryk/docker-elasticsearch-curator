@@ -10,7 +10,8 @@ RUN apk --no-cache add python py-setuptools py-pip gcc libffi py-cffi python-dev
     sed -i '/import sys/a import urllib3.contrib.pyopenssl' /usr/bin/curator && \
     sed -i '/import sys/a import urllib3' /usr/bin/curator
 
-COPY ./curator.yml ./action.yml ./docker-entrypoint.sh /
+COPY curator.yml action.yml docker-entrypoint.sh /
+
 RUN chmod +x /docker-entrypoint.sh
 
 USER nobody:nobody
