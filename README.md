@@ -16,8 +16,6 @@ Also you should not configure CRON or another scheduler - just run container bas
 ## Environment Variables
 
 ```
-CURATOR_INTERVAL    # interval between curator action executions (default: 24h)
-
 # Action vars
 ES_INDEX_PREFIX     # ES index prefix for rotation (default: logstash-)
 ES_INDEX_TIMESTRING # ES index timestring (default: %Y.%m.%d)
@@ -26,6 +24,14 @@ ROTATION_DAYS       # curator will remove indexes older than this value (default
 # ES connection vars
 ES_HOST             # ES host (default: elasticsearch)
 ES_PORT             # ES port (default: 9200)
+
+# ES SSL (optional)
+ES_USE_SSL          # (default: False)
+ES_CERTIFICATE
+ES_CLIENT_CERT
+ES_CLIENT_KEY
+ES_NO_VALIDATE      # (default: False)
+ES_HTTP_AUTH
 ```
 
 
