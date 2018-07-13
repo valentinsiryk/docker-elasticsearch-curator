@@ -32,10 +32,9 @@ RUN sed -i '/import sys/a urllib3.contrib.pyopenssl.inject_into_urllib3()' /usr/
     && sed -i '/import sys/a import urllib3.contrib.pyopenssl' /usr/bin/curator \
     && sed -i '/import sys/a import urllib3' /usr/bin/curator
 
-COPY curator.yml action.yml docker-entrypoint.sh /
+COPY curator.yml action.yml /
 
-RUN chmod +x /docker-entrypoint.sh
+RUN echo "* * * * *     /usr/bin/curator --config /curator.yml /action.yml" >> /etc/crontabs/root
 
-USER nobody:nobody
+CMD ["/usr/sbin/crond","-c","/etc/crontabs","-f","-l","8"]
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
