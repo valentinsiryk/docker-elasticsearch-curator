@@ -1,5 +1,8 @@
 ## Elasticsearch Curator in docker
 
+[![License](https://img.shields.io/github/license/valentinsiryk/docker-elasticsearch-curator.svg)](https://opensource.org/licenses)
+[![Docker Build Status](https://img.shields.io/docker/build/vsiryk/elasticsearch-curator.svg)](https://hub.docker.com/r/vsiryk/elasticsearch-curator)
+
 This is dockerized version of elasticsearch curator,
 tool to manage time-based indices.
 
