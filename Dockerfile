@@ -14,12 +14,12 @@ RUN apk --no-cache add \
         linux-headers \
         openssl-dev \
         libssl1.0 \
-    && pip install \
+ && pip install \
         elasticsearch-curator==5.5.4 \
         boto3==1.4.8 \
         requests-aws4auth==0.9 \
         cryptography==2.1.3 \
-    && apk del \
+ && apk del \
         py-pip \
         gcc \
         python-dev \
