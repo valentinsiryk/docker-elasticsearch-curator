@@ -34,7 +34,7 @@ RUN sed -i '/import sys/a urllib3.contrib.pyopenssl.inject_into_urllib3()' /usr/
 
 COPY curator.yml action.yml /
 
-RUN echo "5 0 * * *     /usr/bin/curator --config /curator.yml /action.yml" >> /etc/crontabs/root
+RUN echo "5 * * * *     /usr/bin/curator --config /curator.yml /action.yml" >> /etc/crontabs/root
 
 CMD ["/usr/sbin/crond","-c","/etc/crontabs","-f","-l","8"]
 
