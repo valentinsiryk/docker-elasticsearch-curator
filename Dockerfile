@@ -15,7 +15,7 @@ RUN apk --no-cache add \
         openssl-dev \
         libssl1.0 \
  && pip install \
-        elasticsearch-curator==5.5.4 \
+        elasticsearch-curator==5.6.0 \
         boto3==1.4.8 \
         requests-aws4auth==0.9 \
         cryptography==2.1.3 \
