@@ -29,12 +29,15 @@ RUN apk --no-cache add \
         openssl-dev
 
 RUN sed -i '/import sys/a urllib3.contrib.pyopenssl.inject_into_urllib3()' /usr/bin/curator \
-    && sed -i '/import sys/a import urllib3.contrib.pyopenssl' /usr/bin/curator \
-    && sed -i '/import sys/a import urllib3' /usr/bin/curator
+ && sed -i '/import sys/a import urllib3.contrib.pyopenssl' /usr/bin/curator \
+ && sed -i '/import sys/a import urllib3' /usr/bin/curator
 
 COPY curator.yml action.yml /
 
-RUN echo "5 * * * *     /usr/bin/curator --config /curator.yml /action.yml" >> /etc/crontabs/root
+COPY ./docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["/usr/sbin/crond","-c","/etc/crontabs","-f","-l","8"]
 
