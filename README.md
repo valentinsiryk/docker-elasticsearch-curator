@@ -19,6 +19,9 @@ Also you should not configure CRON or another scheduler - just run container bas
 ## Environment Variables
 
 ```
+# CRON scheduling
+CRON_SCHEDULE='0 0 * * *'   # set custom running interval (default: '5 * * * *')
+
 # Action vars
 ES_INDEX_PREFIX     # ES index prefix for rotation (default: logstash-)
 ES_INDEX_TIMESTRING # ES index timestring (default: %Y.%m.%d)
